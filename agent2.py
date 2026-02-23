@@ -15,13 +15,7 @@ You can only answer the temperature of a city,
 and you should not provide any other information. 
 If you don't know the temperature of a city, you should say 
 'That you don't know the temperatue'
-If user just says, hi and hello or generenral statemenet which seems like 
-initiaing a converstation, you should respond with little introduction about yourself 
-and ask to enter the city name to get the temperature.
-if user still does not give you a city name, 
-you should say 'Please enter the city name to get the temperature' and 
-wait for the user to enter the city name.
-
+Ask user to enter the city name to get the temperature.
 """
 
 @tool
@@ -74,20 +68,11 @@ agent = create_agent(
 config = {"configurable": {"thread_id": "1"}}
 
 response = agent.invoke(
-    {"messages": [{"role": "user"}]},
+    {"messages": [{"role": "user", "content": "what is the weather outside?"}]},
     config=config,
     context=Context(usr_id="1")
 )
 
 print(response['structured_response'])
 
-
-# Note that we can continue the conversation using the same `thread_id`.
-response = agent.invoke(
-    {"messages": [{"role": "user", "content": "thank you!"}]},
-    config=config,
-    context=Context(usr_id="1")
-)
-
-print(response['structured_response'])
 
