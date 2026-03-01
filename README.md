@@ -1,6 +1,6 @@
 ## LangChain
 
-Prerequite is Python3 - Install python3 and git
+Prerequite is Python3 - Install python3(greater than 3.10) and git
 
 1) Clone the repo.
 2) create a vertual env in the project with name .venvLanChainBasics

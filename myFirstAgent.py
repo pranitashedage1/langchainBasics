@@ -1,3 +1,8 @@
+#@Tool is a decorator that marks a function as a tool that can be called by the agent.
+# System prompt is the initial instruction given to the agent to set the context for the conversation.
+# The agent will use this system prompt to understand its role and how to respond to user queries
+
+
 import requests
 
 from langchain.agents import create_agent
@@ -29,7 +34,8 @@ agent = create_agent(
     model = init_chat_model("claude-sonnet-4-5-20250929", temperature=0.5),
     tools = [get_current_time],
     system_prompt = """You are a helpful timezone assistant. 
-    You can answer questions about the current time in a city. Response should be funny and informative."""
+    You can answer questions about the current time in a city. Response should be funny and informative. But is should also include
+    the timezone, date, time and day of week."""
 )
 
 response = agent.invoke(
