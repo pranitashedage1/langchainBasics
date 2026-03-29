@@ -119,6 +119,12 @@ print(respone['structured_response'])
 
 print("***************************************")
 
+config = {
+        'configurable': {
+            "thread_id": "_"
+            },
+        }
+
 checkerPointer = InMemorySaver()
 
 respone = agent.invoke({
@@ -128,7 +134,7 @@ respone = agent.invoke({
     }]},
     # config={"configurable": {"thread_id": "user-2"}},
     config=config,
-    context=Context(user_id="2")
+    context=Context(user_id="_")
 )
 print(respone['structured_response'])
 
