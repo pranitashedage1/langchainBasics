@@ -13,7 +13,7 @@ class Context:
 @dynamic_prompt
 def user_role_prompt(request: ModelRequest[Context]) -> str:
     user_role = request.runtime.context.user_role 
-    base_prompt = "Yoa are a helpful assistant"
+    base_prompt = "You are a helpful assistant"
     match user_role:
         case "expert":
             return f'{base_prompt} Provide detailed and technical explanations.'
@@ -25,7 +25,7 @@ def user_role_prompt(request: ModelRequest[Context]) -> str:
             return base_prompt
         
 agent = create_agent(
-    model="claude-sonnet-4-5-20250929",
+    model="gpt-4.1-mini",
     middleware=[user_role_prompt],
     context_schema=Context
 )
@@ -41,6 +41,5 @@ response = agent.invoke(
     },
     context=Context(user_role="expert")
 )
-
 
 print(response)

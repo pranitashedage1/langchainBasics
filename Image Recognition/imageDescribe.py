@@ -30,4 +30,3 @@ message = HumanMessage(
 response = model.invoke([message])
 
 print(response.content)
-

@@ -10,10 +10,10 @@ from langchain.tools import tool
 from langchain.chat_models import init_chat_model
 
    
-@tool
+@tool(description="Get current time for a given city. City should be a timezone like America/New_York or Europe/London.")
 def get_current_time(city: str) -> str:
    
-   """Get current time for a given city. City should be a timezone like America/New_York or Europe/London."""
+#    """Get current time for a given city. City should be a timezone like America/New_York or Europe/London."""
    try:
         response = requests.get(
             f"https://timeapi.io/api/time/current/zone?timeZone={city}",

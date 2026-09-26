@@ -24,6 +24,6 @@ texts = [
 
 vector_store = FAISS.from_texts(texts, embedding=embeddings)
 
-print(vector_store.similarity_search("Linux is a great operating system", k=7))
+print(vector_store.similarity_search("Linux is a great operating system", k=2))
 
 
